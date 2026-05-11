@@ -1,0 +1,13 @@
+import { defineConfig } from '@rikoriswandha/adonisjs-midtrans/define_config'
+import env from '#start/env'
+
+const midtransConfig = defineConfig({
+  serverKey: env.get('MIDTRANS_SERVER_KEY'),
+  clientKey: env.get('MIDTRANS_CLIENT_KEY'),
+  irisKey: env.get('MIDTRANS_IRIS_KEY'),
+  sandbox: env.get('MIDTRANS_SANDBOX', true),
+  timeout: env.get('MIDTRANS_TIMEOUT', 30_000),
+  debug: env.get('MIDTRANS_DEBUG', false),
+})
+
+export default midtransConfig
