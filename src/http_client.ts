@@ -1,4 +1,4 @@
-import { MidtransAPIError, MidtransHTTPError } from './midtrans_error.js'
+import { MidtransError, MidtransAPIError, MidtransHTTPError } from './midtrans_error.js'
 import type { MidtransConfig } from './types.js'
 
 export class HttpClient {
@@ -61,8 +61,6 @@ export class HttpClient {
         signal: controller.signal,
       })
 
-      clearTimeout(timeoutId)
-
       if (!response.ok) {
         const responseBody = await response.text()
 
@@ -93,17 +91,13 @@ export class HttpClient {
 
       return (await response.json()) as T
     } catch (error) {
-      clearTimeout(timeoutId)
-
-      if (error instanceof MidtransAPIError || error instanceof MidtransHTTPError) {
+      if (error instanceof MidtransError) {
         throw error
       }
 
-      if (error instanceof Error) {
-        throw new MidtransHTTPError(0, url, method, error.message)
-      }
-
-      throw new MidtransHTTPError(0, url, method, String(error))
+      throw new MidtransHTTPError(0, url, method, `Midtrans request failed: ${(error as Error).message}`)
+    } finally {
+      clearTimeout(timeoutId)
     }
   }
 }

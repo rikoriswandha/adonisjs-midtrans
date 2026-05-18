@@ -8,6 +8,9 @@ import type {
   ChargeRequest,
   ChargeResponse,
   CreditCardChargeRequest,
+  BankTransferChargeRequest,
+  EWalletChargeRequest,
+  CStoreChargeRequest,
 } from './types.js'
 
 export class CoreClient {
@@ -35,41 +38,41 @@ export class CoreClient {
     bank: 'bca' | 'bni' | 'bri' | 'mandiri' | 'permata' | 'cimb',
     vaNumber?: string
   ): ChargeRequest {
-    const request: ChargeRequest = {
+    const bankTransfer: BankTransferChargeRequest = { bank }
+    if (vaNumber) {
+      bankTransfer.va_number = vaNumber
+    }
+    return {
       transaction_details: { order_id: orderId, gross_amount: amount },
       payment_type: 'bank_transfer',
-      bank_transfer: { bank },
+      bank_transfer: bankTransfer,
     }
-    if (vaNumber) {
-      request.bank_transfer.va_number = vaNumber
-    }
-    return request
   }
 
   createGoPayCharge(orderId: string, amount: number, callbackUrl?: string): ChargeRequest {
-    const request: ChargeRequest = {
+    const gopay: EWalletChargeRequest = { provider: 'gopay' }
+    if (callbackUrl) {
+      gopay.callback_url = callbackUrl
+      gopay.enable_callback = true
+    }
+    return {
       transaction_details: { order_id: orderId, gross_amount: amount },
       payment_type: 'gopay',
-      gopay: { provider: 'gopay' },
+      gopay,
     }
-    if (callbackUrl) {
-      request.gopay.callback_url = callbackUrl
-      request.gopay.enable_callback = true
-    }
-    return request
   }
 
   createShopeepayCharge(orderId: string, amount: number, callbackUrl?: string): ChargeRequest {
-    const request: ChargeRequest = {
+    const shopeepay: EWalletChargeRequest = { provider: 'shopeepay' }
+    if (callbackUrl) {
+      shopeepay.callback_url = callbackUrl
+      shopeepay.enable_callback = true
+    }
+    return {
       transaction_details: { order_id: orderId, gross_amount: amount },
       payment_type: 'shopeepay',
-      shopeepay: { provider: 'shopeepay' },
+      shopeepay,
     }
-    if (callbackUrl) {
-      request.shopeepay.callback_url = callbackUrl
-      request.shopeepay.enable_callback = true
-    }
-    return request
   }
 
   createQrisCharge(orderId: string, amount: number): ChargeRequest {
@@ -86,15 +89,15 @@ export class CoreClient {
     store: 'indomaret' | 'alfamart',
     message?: string
   ): ChargeRequest {
-    const request: ChargeRequest = {
+    const cstore: CStoreChargeRequest = { store }
+    if (message) {
+      cstore.message = message
+    }
+    return {
       transaction_details: { order_id: orderId, gross_amount: amount },
       payment_type: 'cstore',
-      cstore: { store },
+      cstore,
     }
-    if (message) {
-      request.cstore.message = message
-    }
-    return request
   }
 
   createAkulakuCharge(orderId: string, amount: number): ChargeRequest {
