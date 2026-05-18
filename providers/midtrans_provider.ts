@@ -1,4 +1,5 @@
 import type { ApplicationService } from '@adonisjs/core/types'
+import { defineConfig } from '../src/define_config.js'
 import { MidtransManager } from '../src/midtrans_manager.js'
 import type { MidtransConfig } from '../src/types.js'
 
@@ -7,8 +8,12 @@ export default class MidtransProvider {
 
   register() {
     this.app.container.singleton(MidtransManager, async () => {
-      const config = this.app.config.get<MidtransConfig>('midtrans', {})
-      return new MidtransManager(config)
+      const config = this.app.config.get<Partial<MidtransConfig> & { serverKey: string }>(
+        'midtrans',
+        { serverKey: '' }
+      )
+
+      return new MidtransManager(defineConfig(config))
     })
   }
 }

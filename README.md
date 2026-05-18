@@ -39,8 +39,8 @@ export default Env.create(new URL('.', import.meta.url), {
   MIDTRANS_CLIENT_KEY: Env.schema.string.optional(),
   MIDTRANS_IRIS_KEY: Env.schema.string.optional(),
   MIDTRANS_SANDBOX: Env.schema.boolean(),
-  MIDTRANS_TIMEOUT: Env.schema.number(),
-  MIDTRANS_DEBUG: Env.schema.boolean(),
+  MIDTRANS_TIMEOUT: Env.schema.number.optional(),
+  MIDTRANS_DEBUG: Env.schema.boolean.optional(),
 })
 ```
 
@@ -78,7 +78,9 @@ export default defineConfig({
 Resolve the Midtrans manager from the IoC container:
 
 ```typescript
-const midtrans = await app.container.make('midtrans')
+import { MidtransManager } from '@rikoriswandha/adonisjs-midtrans'
+
+const midtrans = await app.container.make(MidtransManager)
 ```
 
 The manager exposes three clients: `snap`, `core`, and `iris` (optional).

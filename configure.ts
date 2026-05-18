@@ -57,7 +57,7 @@ export async function configure(command: Configure) {
       MIDTRANS_SERVER_KEY: 'Env.schema.string()',
       MIDTRANS_CLIENT_KEY: 'Env.schema.string.optional()',
       MIDTRANS_IRIS_KEY: 'Env.schema.string.optional()',
-      MIDTRANS_SANDBOX: "Env.schema.boolean()",
+      MIDTRANS_SANDBOX: 'Env.schema.boolean()',
       MIDTRANS_TIMEOUT: 'Env.schema.number.optional()',
       MIDTRANS_DEBUG: 'Env.schema.boolean.optional()',
     },
