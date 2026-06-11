@@ -18,7 +18,7 @@ Error
 Base class. Rarely thrown directly, but useful as a catch-all:
 
 ```typescript
-import { MidtransError } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransError } from '@rikology/adonisjs-midtrans'
 
 try {
   await midtrans.core.charge(params)
@@ -49,7 +49,7 @@ try {
 Thrown when the HTTP request itself fails: network errors, DNS issues, timeouts, or 5xx responses from Midtrans.
 
 ```typescript
-import { MidtransHTTPError } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransHTTPError } from '@rikology/adonisjs-midtrans'
 
 try {
   await midtrans.core.charge(params)
@@ -76,7 +76,7 @@ try {
 Thrown when Midtrans returns a 4xx response with validation errors. This means the request reached Midtrans but was rejected.
 
 ```typescript
-import { MidtransAPIError } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransAPIError } from '@rikology/adonisjs-midtrans'
 
 try {
   await midtrans.core.charge(params)
@@ -102,8 +102,8 @@ try {
 Thrown by `defineConfig` when your configuration is invalid (e.g. missing `serverKey`, timeout below 1000ms).
 
 ```typescript
-import { defineConfig } from '@rikoriswandha/adonisjs-midtrans/define_config'
-import { MidtransValidationError } from '@rikoriswandha/adonisjs-midtrans'
+import { defineConfig } from '@rikology/adonisjs-midtrans/define_config'
+import { MidtransValidationError } from '@rikology/adonisjs-midtrans'
 
 try {
   defineConfig({ serverKey: '', sandbox: true })
@@ -126,7 +126,7 @@ try {
 Thrown when webhook signature verification fails. Note: `validateSignature` returns `false` rather than throwing. This error class is available for cases where you want to throw explicitly after validation.
 
 ```typescript
-import { MidtransSignatureError } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransSignatureError } from '@rikology/adonisjs-midtrans'
 
 function assertSignature(valid: boolean) {
   if (!valid) {
@@ -175,7 +175,7 @@ async function chargeWithFallback(params: ChargeRequest) {
 ### Structured logging
 
 ```typescript
-import { MidtransError } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransError } from '@rikology/adonisjs-midtrans'
 
 function logMidtransError(error: unknown, context: string) {
   if (error instanceof MidtransError) {

@@ -23,7 +23,7 @@ import {
   isTransactionSuccess,
   isTransactionPending,
   isTransactionFailure,
-} from '@rikoriswandha/adonisjs-midtrans'
+} from '@rikology/adonisjs-midtrans'
 import type { HttpContext } from '@adonisjs/core/http'
 import env from '#start/env'
 
@@ -101,7 +101,7 @@ import {
   isTransactionSuccess,
   isTransactionPending,
   isTransactionFailure,
-} from '@rikoriswandha/adonisjs-midtrans'
+} from '@rikology/adonisjs-midtrans'
 ```
 
 ## Notification fields

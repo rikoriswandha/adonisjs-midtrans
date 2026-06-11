@@ -64,8 +64,8 @@ export async function configure(command: Configure) {
   })
 
   await codemods.updateRcFile((rcFile) => {
-    rcFile.addProvider('@rikoriswandha/adonisjs-midtrans/midtrans_provider')
+    rcFile.addProvider('@rikology/adonisjs-midtrans/midtrans_provider')
   })
 
-  command.logger.success('@rikoriswandha/adonisjs-midtrans configured successfully')
+  command.logger.success('@rikology/adonisjs-midtrans configured successfully')
 }

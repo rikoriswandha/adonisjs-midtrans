@@ -1,9 +1,9 @@
-# @rikoriswandha/adonisjs-midtrans
+# @rikology/adonisjs-midtrans
 
-[![npm version](https://img.shields.io/npm/v/@rikoriswandha/adonisjs-midtrans.svg)](https://www.npmjs.com/package/@rikoriswandha/adonisjs-midtrans)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/blob/main/LICENSE.md)
-[![node](https://img.shields.io/node/v/@rikoriswandha/adonisjs-midtrans.svg)](https://nodejs.org)
-[![checks](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml/badge.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml)
+[![npm version](https://img.shields.io/npm/v/@rikology/adonisjs-midtrans.svg)](https://www.npmjs.com/package/@rikology/adonisjs-midtrans)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikology/adonisjs-midtrans/blob/main/LICENSE.md)
+[![node](https://img.shields.io/node/v/@rikology/adonisjs-midtrans.svg)](https://nodejs.org)
+[![checks](https://github.com/rikology/adonisjs-midtrans/actions/workflows/checks.yml/badge.svg)](https://github.com/rikology/adonisjs-midtrans/actions/workflows/checks.yml)
 
 AdonisJS v7 package for [Midtrans](https://midtrans.com) payment gateway integration. Supports Snap checkout, Core API (credit card, bank transfer, e-wallet, c-store, BNPL), transaction management, Iris disbursement, and webhook verification.
 
@@ -45,8 +45,8 @@ AdonisJS v7 package for [Midtrans](https://midtrans.com) payment gateway integra
 ## Installation
 
 ```bash
-npm install @rikoriswandha/adonisjs-midtrans
-node ace configure @rikoriswandha/adonisjs-midtrans
+npm install @rikology/adonisjs-midtrans
+node ace configure @rikology/adonisjs-midtrans
 ```
 
 The `configure` command interactively prompts for your keys, creates `config/midtrans.ts`, injects environment variables, and registers the provider in `adonisrc.ts`.
@@ -84,7 +84,7 @@ export default Env.create(new URL('.', import.meta.url), {
 The config lives in `config/midtrans.ts`. Use the `defineConfig` helper for type safety and validation:
 
 ```typescript
-import { defineConfig } from '@rikoriswandha/adonisjs-midtrans/define_config'
+import { defineConfig } from '@rikology/adonisjs-midtrans/define_config'
 import env from '#start/env'
 
 export default defineConfig({
@@ -113,7 +113,7 @@ export default defineConfig({
 Resolve the Midtrans manager from the IoC container:
 
 ```typescript
-import { MidtransManager } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransManager } from '@rikology/adonisjs-midtrans'
 
 const midtrans = await app.container.make(MidtransManager)
 ```
@@ -277,7 +277,7 @@ import {
   validateSignature,
   parseNotification,
   isTransactionSuccess,
-} from '@rikoriswandha/adonisjs-midtrans'
+} from '@rikology/adonisjs-midtrans'
 ```
 
 In your webhook route:
@@ -324,7 +324,7 @@ import {
   MidtransAPIError,
   MidtransHTTPError,
   MidtransValidationError,
-} from '@rikoriswandha/adonisjs-midtrans'
+} from '@rikology/adonisjs-midtrans'
 
 try {
   const charge = await midtrans.core.charge(params)
@@ -370,8 +370,8 @@ const config = midtrans.safeConfig
 
 - [Midtrans official documentation](https://docs.midtrans.com/)
 - [Midtrans API reference](https://api-docs.midtrans.com/)
-- [GitHub repository](https://github.com/rikoriswandha/adonisjs-midtrans)
-- [Report an issue](https://github.com/rikoriswandha/adonisjs-midtrans/issues)
+- [GitHub repository](https://github.com/rikology/adonisjs-midtrans)
+- [Report an issue](https://github.com/rikology/adonisjs-midtrans/issues)
 
 ## Contributing
 

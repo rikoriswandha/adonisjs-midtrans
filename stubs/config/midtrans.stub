@@ -1,7 +1,7 @@
 {{{
   exports({ to: app.configPath('midtrans.ts') })
 }}}
-import { defineConfig } from '@rikoriswandha/adonisjs-midtrans/define_config'
+import { defineConfig } from '@rikology/adonisjs-midtrans/define_config'
 import env from '#start/env'
 
 const midtransConfig = defineConfig({

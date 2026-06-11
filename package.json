@@ -1,5 +1,5 @@
 {
-  "name": "@rikoriswandha/adonisjs-midtrans",
+  "name": "@rikology/adonisjs-midtrans",
   "description": "AdonisJS v7 package for Midtrans payment gateway integration (Snap, Core API, Iris)",
   "version": "0.0.0",
   "engines": {
@@ -62,7 +62,7 @@
     "indonesia",
     "payment"
   ],
-  "author": "Riko Riswandha <rikoriswandha@gmail.com>",
+  "author": "Riko Riswandha <rikology@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@adonisjs/assembler": "^8.0.0",
@@ -96,15 +96,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rikoriswandha/adonisjs-midtrans.git"
+    "url": "git+https://github.com/rikology/adonisjs-midtrans.git"
   },
   "bugs": {
-    "url": "https://github.com/rikoriswandha/adonisjs-midtrans/issues"
+    "url": "https://github.com/rikology/adonisjs-midtrans/issues"
   },
-  "homepage": "https://github.com/rikoriswandha/adonisjs-midtrans#readme",
+  "homepage": "https://github.com/rikology/adonisjs-midtrans#readme",
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "tsdown": {
     "entry": [

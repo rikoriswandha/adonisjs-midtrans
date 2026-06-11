@@ -7,7 +7,7 @@ Snap is Midtrans's hosted checkout page. Your server creates a transaction token
 Use `midtrans.snap.createTransaction` with the customer's order details:
 
 ```typescript
-import { MidtransManager } from '@rikoriswandha/adonisjs-midtrans'
+import { MidtransManager } from '@rikology/adonisjs-midtrans'
 
 export default class CheckoutController {
   constructor(private midtrans: MidtransManager) {}

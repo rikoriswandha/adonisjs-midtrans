@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial release of `@rikoriswandha/adonisjs-midtrans`
+- Initial release of `@rikology/adonisjs-midtrans`
 - **Snap API** support for redirect checkout
 - **Core API** support for credit card, bank transfer (BCA, BNI, BRI, Mandiri, Permata, CIMB), GoPay, ShopeePay, QRIS, convenience store (Indomaret/Alfamart), and BNPL (Akulaku/Kredivo)
 - **Iris API** support for disbursement when `irisKey` is configured
