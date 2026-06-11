@@ -95,7 +95,12 @@ export class HttpClient {
         throw error
       }
 
-      throw new MidtransHTTPError(0, url, method, `Midtrans request failed: ${(error as Error).message}`)
+      throw new MidtransHTTPError(
+        0,
+        url,
+        method,
+        `Midtrans request failed: ${(error as Error).message}`
+      )
     } finally {
       clearTimeout(timeoutId)
     }

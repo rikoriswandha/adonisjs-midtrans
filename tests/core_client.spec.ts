@@ -187,7 +187,12 @@ test.group('CoreClient', () => {
   test('createBankTransferCharge builds correct request with vaNumber', ({ assert }) => {
     const { core } = createMockClient()
 
-    const result = core.createBankTransferCharge('order-1', 50000, 'bca', '1234567890') as BankTransferCharge
+    const result = core.createBankTransferCharge(
+      'order-1',
+      50000,
+      'bca',
+      '1234567890'
+    ) as BankTransferCharge
 
     assert.equal(result.payment_type, 'bank_transfer')
     assert.equal(result.bank_transfer.bank, 'bca')
@@ -208,7 +213,11 @@ test.group('CoreClient', () => {
   test('createGoPayCharge builds correct request with callback', ({ assert }) => {
     const { core } = createMockClient()
 
-    const result = core.createGoPayCharge('order-1', 25000, 'https://example.com/callback') as GopayCharge
+    const result = core.createGoPayCharge(
+      'order-1',
+      25000,
+      'https://example.com/callback'
+    ) as GopayCharge
 
     assert.equal(result.payment_type, 'gopay')
     assert.equal(result.gopay.callback_url, 'https://example.com/callback')
@@ -228,7 +237,11 @@ test.group('CoreClient', () => {
   test('createShopeepayCharge builds correct request with callback', ({ assert }) => {
     const { core } = createMockClient()
 
-    const result = core.createShopeepayCharge('order-1', 30000, 'https://example.com/callback') as ShopeepayCharge
+    const result = core.createShopeepayCharge(
+      'order-1',
+      30000,
+      'https://example.com/callback'
+    ) as ShopeepayCharge
 
     assert.equal(result.payment_type, 'shopeepay')
     assert.equal(result.shopeepay.callback_url, 'https://example.com/callback')
@@ -259,7 +272,12 @@ test.group('CoreClient', () => {
   test('createCStoreCharge builds correct request with message', ({ assert }) => {
     const { core } = createMockClient()
 
-    const result = core.createCStoreCharge('order-1', 75000, 'alfamart', 'Pay at store') as CstoreCharge
+    const result = core.createCStoreCharge(
+      'order-1',
+      75000,
+      'alfamart',
+      'Pay at store'
+    ) as CstoreCharge
 
     assert.equal(result.payment_type, 'cstore')
     assert.equal(result.cstore.store, 'alfamart')

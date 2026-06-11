@@ -1,8 +1,41 @@
 # @rikoriswandha/adonisjs-midtrans
 
-[![npm version](https://img.shields.io/npm/v/@rikoriswandha/adonisjs-midtrans.svg)](https://www.npmjs.com/package/@rikoriswandha/adonisjs-midtrans) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/blob/main/LICENSE.md) [![node](https://img.shields.io/node/v/@rikoriswandha/adonisjs-midtrans.svg)](https://nodejs.org)
+[![npm version](https://img.shields.io/npm/v/@rikoriswandha/adonisjs-midtrans.svg)](https://www.npmjs.com/package/@rikoriswandha/adonisjs-midtrans)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/blob/main/LICENSE.md)
+[![node](https://img.shields.io/node/v/@rikoriswandha/adonisjs-midtrans.svg)](https://nodejs.org)
+[![checks](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml/badge.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml)
 
-AdonisJS v7 package for Midtrans payment gateway integration. Supports Snap checkout, Core API (credit card, bank transfer, e-wallet, c-store, BNPL), transaction management, Iris disbursement, and webhook verification.
+AdonisJS v7 package for [Midtrans](https://midtrans.com) payment gateway integration. Supports Snap checkout, Core API (credit card, bank transfer, e-wallet, c-store, BNPL), transaction management, Iris disbursement, and webhook verification.
+
+## Features
+
+- **Snap** – Redirect checkout with Midtrans payment page
+- **Core API** – Direct charge for credit card, bank transfer (BCA, BNI, BRI, Mandiri, Permata, CIMB), GoPay, ShopeePay, QRIS, convenience store (Indomaret / Alfamart), and BNPL (Akulaku / Kredivo)
+- **Transaction management** – Check status, cancel, refund, expire, and approve transactions
+- **Iris disbursement** – Payouts to bank accounts when `irisKey` is configured
+- **Webhook helpers** – Signature verification, typed notification parsing, and status predicates
+- **Typed errors** – Granular error classes for HTTP, API, validation, and signature failures
+- **AdonisJS native** – Provider registration, `configure` hook, and IoC container singleton
+
+## Table of contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Environment variables](#environment-variables)
+  - [Config file](#config-file)
+- [Usage](#usage)
+  - [Snap](#snap-redirect-checkout)
+  - [Core API](#core-api)
+  - [Transaction management](#transaction-management)
+  - [Iris disbursement](#iris-disbursement)
+  - [Webhook handling](#webhook-handling)
+  - [Error handling](#error-handling)
+  - [Safe config access](#safe-config-access)
+- [Documentation](#documentation)
+- [Links](#links)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Requirements
 
@@ -15,6 +48,8 @@ AdonisJS v7 package for Midtrans payment gateway integration. Supports Snap chec
 npm install @rikoriswandha/adonisjs-midtrans
 node ace configure @rikoriswandha/adonisjs-midtrans
 ```
+
+The `configure` command interactively prompts for your keys, creates `config/midtrans.ts`, injects environment variables, and registers the provider in `adonisrc.ts`.
 
 ## Configuration
 
@@ -270,7 +305,7 @@ router.post('/midtrans/webhook', async ({ request, response, env }) => {
 
 `isTransactionSuccess` returns `true` when `transaction_status` is `"settlement"` or `"capture"`. These are the only statuses where you should fulfill an order.
 
-## Error handling
+### Error handling
 
 The package provides a typed error hierarchy. All errors extend `MidtransError`.
 
@@ -313,7 +348,7 @@ try {
 
 All error `toJSON()` methods exclude sensitive data like server keys.
 
-## Safe config access
+### Safe config access
 
 Use `safeConfig` to expose configuration without leaking keys:
 
@@ -323,12 +358,37 @@ const config = midtrans.safeConfig
 // serverKey and irisKey are excluded
 ```
 
+## Documentation
+
+- [Snap integration guide](./docs/snap.md)
+- [Core API deep dive](./docs/core-api.md)
+- [Webhooks guide](./docs/webhooks.md)
+- [Error handling reference](./docs/errors.md)
+- [FAQ & troubleshooting](./docs/faq.md)
+
 ## Links
 
 - [Midtrans official documentation](https://docs.midtrans.com/)
 - [Midtrans API reference](https://api-docs.midtrans.com/)
 - [GitHub repository](https://github.com/rikoriswandha/adonisjs-midtrans)
 - [Report an issue](https://github.com/rikoriswandha/adonisjs-midtrans/issues)
+
+## Contributing
+
+Contributions are welcome. Before opening a pull request, please make sure the test suite passes:
+
+```bash
+# Install dependencies
+npm install
+
+# Run lint, typecheck, and tests
+npm test
+
+# Build
+npm run build
+```
+
+All changes should include tests where applicable.
 
 ## License
 

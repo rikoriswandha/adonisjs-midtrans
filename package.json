@@ -6,6 +6,8 @@
     "node": ">=24.0.0"
   },
   "type": "module",
+  "sideEffects": false,
+  "types": "build/index.d.ts",
   "files": [
     "build",
     "!build/bin",
@@ -13,11 +15,26 @@
   ],
   "main": "build/index.js",
   "exports": {
-    ".": "./build/index.js",
-    "./configure": "./build/configure.js",
-    "./types": "./build/src/types.js",
-    "./define_config": "./build/src/define_config.js",
-    "./midtrans_provider": "./build/providers/midtrans_provider.js"
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./configure": {
+      "types": "./build/configure.d.ts",
+      "default": "./build/configure.js"
+    },
+    "./types": {
+      "types": "./build/src/types.d.ts",
+      "default": "./build/src/types.js"
+    },
+    "./define_config": {
+      "types": "./build/src/define_config.d.ts",
+      "default": "./build/src/define_config.js"
+    },
+    "./midtrans_provider": {
+      "types": "./build/providers/midtrans_provider.d.ts",
+      "default": "./build/providers/midtrans_provider.js"
+    }
   },
   "scripts": {
     "copy:templates": "copyfiles \"stubs/**/*.stub\" build",

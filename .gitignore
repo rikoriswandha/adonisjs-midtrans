@@ -10,3 +10,4 @@ dist
 package-lock.json
 .sisyphus/
 codedb.snapshot
+.omp/

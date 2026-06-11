@@ -65,7 +65,10 @@ test.group('MidtransHTTPError', () => {
 
 test.group('MidtransAPIError', () => {
   test('toJSON includes statusMessage and errorMessages', ({ assert }) => {
-    const error = new MidtransAPIError(400, 'Bad Request', ['field X is required', 'invalid amount'])
+    const error = new MidtransAPIError(400, 'Bad Request', [
+      'field X is required',
+      'invalid amount',
+    ])
 
     const json = error.toJSON() as Record<string, unknown>
 
