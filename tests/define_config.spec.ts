@@ -57,3 +57,9 @@ test.group('defineConfig', () => {
     assert.equal(config.timeout, 1000)
   })
 })
+
+test('rejects non-finite timeouts', ({ assert }) => {
+  for (const timeout of [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]) {
+    assert.throws(() => defineConfig({ serverKey: 'sk_123', timeout }), MidtransValidationError)
+  }
+})

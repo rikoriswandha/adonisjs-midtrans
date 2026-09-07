@@ -27,7 +27,7 @@ export function defineConfig(
   }
 
   if (config.timeout !== undefined && (!Number.isFinite(config.timeout) || config.timeout < 1000)) {
-    throw new MidtransValidationError('timeout', 'must be a finite number of at least 1000ms')
+    throw new MidtransValidationError('timeout', 'must be at least 1000ms')
   }
 
   if (config.sandbox !== undefined && typeof config.sandbox !== 'boolean') {
