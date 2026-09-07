@@ -26,7 +26,7 @@ export function defineConfig(
     throw new MidtransValidationError('serverKey', 'is required')
   }
 
-  if (config.timeout !== undefined && config.timeout < 1000) {
+  if (config.timeout !== undefined && (!Number.isFinite(config.timeout) || config.timeout < 1000)) {
     throw new MidtransValidationError('timeout', 'must be at least 1000ms')
   }
 
