@@ -1,9 +1,9 @@
 # @rikology/adonisjs-midtrans
 
 [![npm version](https://img.shields.io/npm/v/@rikology/adonisjs-midtrans.svg)](https://www.npmjs.com/package/@rikology/adonisjs-midtrans)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikology/adonisjs-midtrans/blob/main/LICENSE.md)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/blob/main/LICENSE.md)
 [![node](https://img.shields.io/node/v/@rikology/adonisjs-midtrans.svg)](https://nodejs.org)
-[![checks](https://github.com/rikology/adonisjs-midtrans/actions/workflows/checks.yml/badge.svg)](https://github.com/rikology/adonisjs-midtrans/actions/workflows/checks.yml)
+[![checks](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml/badge.svg)](https://github.com/rikoriswandha/adonisjs-midtrans/actions/workflows/checks.yml)
 
 AdonisJS v7 package for [Midtrans](https://midtrans.com) payment gateway integration. Supports Snap checkout, Core API (credit card, bank transfer, e-wallet, c-store, BNPL), transaction management, Iris disbursement, and webhook verification.
 
@@ -370,8 +370,8 @@ const config = midtrans.safeConfig
 
 - [Midtrans official documentation](https://docs.midtrans.com/)
 - [Midtrans API reference](https://api-docs.midtrans.com/)
-- [GitHub repository](https://github.com/rikology/adonisjs-midtrans)
-- [Report an issue](https://github.com/rikology/adonisjs-midtrans/issues)
+- [GitHub repository](https://github.com/rikoriswandha/adonisjs-midtrans)
+- [Report an issue](https://github.com/rikoriswandha/adonisjs-midtrans/issues)
 
 ## Contributing
 
