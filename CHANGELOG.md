@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `repository`, `bugs`, and `homepage` in `package.json` and the README/docs links pointed to `github.com/rikology/adonisjs-midtrans`, which does not exist. They now point to `github.com/rikoriswandha/adonisjs-midtrans`, matching the repository that npm provenance is published from.
+
 ## [1.0.0] - 2026-06-11
 
 ### Added

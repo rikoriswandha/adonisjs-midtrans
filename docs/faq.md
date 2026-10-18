@@ -183,5 +183,5 @@ defineConfig({
 
 ## Still stuck?
 
-- [Open an issue](https://github.com/rikology/adonisjs-midtrans/issues) with the error message and reproduction steps
+- [Open an issue](https://github.com/rikoriswandha/adonisjs-midtrans/issues) with the error message and reproduction steps
 - Check the [Midtrans documentation](https://docs.midtrans.com/) for API-specific questions
