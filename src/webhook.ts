@@ -7,7 +7,7 @@ import type { MidtransNotification } from './types.js'
  */
 export function validateSignature(payload: Record<string, string>, serverKey: string): boolean {
   const signatureKey = payload.signature_key
-  if (!signatureKey) return false
+  if (typeof signatureKey !== 'string' || !signatureKey || !serverKey) return false
   if (!payload.order_id || !payload.status_code || !payload.gross_amount) return false
 
   const raw = payload.order_id + payload.status_code + payload.gross_amount + serverKey
@@ -36,7 +36,8 @@ export function parseNotification(body: Record<string, unknown>): MidtransNotifi
  */
 export function isTransactionSuccess(notification: MidtransNotification): boolean {
   return (
-    notification.transaction_status === 'settlement' ||
-    notification.transaction_status === 'capture'
+    (notification.transaction_status === 'settlement' ||
+      notification.transaction_status === 'capture') &&
+    (notification.fraud_status === undefined || notification.fraud_status === 'accept')
   )
 }

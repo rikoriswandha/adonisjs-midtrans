@@ -253,3 +253,16 @@ test.group('Webhook utilities', () => {
     assert.isFalse(isTransactionSuccess(notification))
   })
 })
+
+test('challenged or denied payments are not successful', ({ assert }) => {
+  for (const transactionStatus of ['capture', 'settlement']) {
+    for (const fraudStatus of ['challenge', 'deny']) {
+      assert.isFalse(
+        isTransactionSuccess({
+          transaction_status: transactionStatus,
+          fraud_status: fraudStatus,
+        } as MidtransNotification)
+      )
+    }
+  }
+})
