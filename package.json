@@ -96,12 +96,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rikology/adonisjs-midtrans.git"
+    "url": "git+https://github.com/rikoriswandha/adonisjs-midtrans.git"
   },
   "bugs": {
-    "url": "https://github.com/rikology/adonisjs-midtrans/issues"
+    "url": "https://github.com/rikoriswandha/adonisjs-midtrans/issues"
   },
-  "homepage": "https://github.com/rikology/adonisjs-midtrans#readme",
+  "homepage": "https://github.com/rikoriswandha/adonisjs-midtrans#readme",
   "publishConfig": {
     "access": "public"
   },
